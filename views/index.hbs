@@ -1,0 +1,117 @@
+<html>
+
+  <head>
+    <link rel="shortcut icon" href="../assets/logo.svg" type="image/x-icon" />
+    <title>Form & Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"
+    ></script>
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h2 style="font-family: 'Times New Roman', Times, serif;">Add Friend</h2>
+      <form action="/" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            placeholder="Enter your age"
+            required
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+
+    </div>
+    <div
+      class="mt-5 bg-white text-center mb-5 p-2"
+      style="border-radius: 10px;"
+    >
+      <h2 style="font-family: 'Times New Roman', Times, serif;" class="p-2">List
+        Table</h2>
+      <div class="table-wrapper">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr class="table-secondary">
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            {{#each dataTeman}}
+              <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.gender}}</td>
+                <td>{{this.age}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div style="width: 600px; height: 400px;">
+        <canvas id="myChart"></canvas>
+      </div>
+      {{! <div class="table-wrapper">
+        <ul id="dataList"></ul>
+      </div> }}
+      <div>
+        <a class="learn-more" id="downloadPdfButton">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">Download PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    ></script>
+    <script src="../assets/js/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/pdf.js"></script>
+
+  </body>
+
+</html>
